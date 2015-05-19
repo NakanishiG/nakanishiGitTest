@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Main Page</title>
+</h:head>
+
+<body>
+	<rich:toolbar height="26px">
+		<rich:dropDownMenu mode="ajax">
+			<f:facet name="label">
+				<h:panelGroup><h:outputText value="契約" /></h:panelGroup>
+			</f:facet>
+			<rich:menuItem label="aaaa" action="#{main.toMain(main.contract)}" />
+			<rich:menuItem label="bbbb" action="#{main.toMain(main.contract)}" />
+			<rich:menuGroup label="cccc">
+				<rich:menuItem label="dddd" action="#{main.toMain(main.contract)}" />
+				<rich:menuItem label="eeee" action="#{main.toMain(main.contract)}" />
+			</rich:menuGroup>
+		</rich:dropDownMenu>
+		<rich:dropDownMenu mode="ajax">
+			<f:facet name="label">
+				<h:panelGroup><h:outputText value="見積・抜け" /></h:panelGroup>
+			</f:facet>
+			<rich:menuItem label="ffff" action="#{main.toMain(main.contract)}" />
+			<rich:menuItem label="gggg" action="#{main.toMain(main.contract)}" />
+		</rich:dropDownMenu>
+		<rich:dropDownMenu mode="ajax">
+			<f:facet name="label">
+				<h:panelGroup><h:outputText value="印刷" /></h:panelGroup>
+			</f:facet>
+		</rich:dropDownMenu>
+		<rich:dropDownMenu mode="ajax">
+			<f:facet name="label">
+				<h:panelGroup><h:outputText value="編集" /></h:panelGroup>
+			</f:facet>
+		</rich:dropDownMenu>
+		<rich:dropDownMenu mode="ajax">
+			<f:facet name="label">
+				<h:panelGroup><h:outputText value="代理店伝送" /></h:panelGroup>
+			</f:facet>
+		</rich:dropDownMenu>
+		<rich:dropDownMenu mode="ajax">
+			<f:facet name="label">
+				<h:panelGroup><h:outputText value="管理帳票" /></h:panelGroup>
+			</f:facet>
+		</rich:dropDownMenu>
+		<rich:dropDownMenu mode="ajax">
+			<f:facet name="label">
+				<h:panelGroup><h:outputText value="ｳｨﾝﾄﾞｳ" /></h:panelGroup>
+			</f:facet>
+		</rich:dropDownMenu>
+		<rich:dropDownMenu mode="ajax">
+			<f:facet name="label">
+				<h:panelGroup><h:outputText value="ｵﾌﾟｼｮﾝ" /></h:panelGroup>
+			</f:facet>
+		</rich:dropDownMenu>
+		<rich:dropDownMenu mode="ajax">
+			<f:facet name="label">
+				<h:panelGroup><h:outputText value="ﾍﾙﾌﾟ" /></h:panelGroup>
+			</f:facet>
+		</rich:dropDownMenu>
+	</rich:toolbar>
+
+	<rich:toolbar height="26px" itemSeparator="line">
+		<rich:toolbarGroup>
+			<h:outputText value="内" />
+		</rich:toolbarGroup>
+		<rich:toolbarGroup>
+			<h:outputText value="空（月～金）" />
+			<h:outputText value="空（土・日）" />
+			<h:outputText value="空（月～日）" />
+			<h:outputText value="空（高度）" />
+			<h:outputText value="空（月）" />
+		</rich:toolbarGroup>
+		<rich:toolbarGroup>
+			<h:outputText value="G" />
+			<h:outputText value="K" />
+			<h:outputText value="Z" />
+			<h:outputText value="S" />
+			<h:outputText value="A" />
+			<h:outputText value="月" />
+		</rich:toolbarGroup>
+	</rich:toolbar>
+
+	<h:panelGrid columns="2">
+		<h:outputText value="contractNo" />
+		<h:inputText value="#{main.contract.contractNo}" />
+		<h:outputText value="sponsorName" />
+		<h:inputText value="#{main.contract.sponsorName}" />
+		<h:outputText value="agencyName" />
+		<h:inputText value="#{main.contract.agencyName}" />
+		<h:outputText value="itemName" />
+		<h:inputText value="#{main.contract.itemName}" />
+	</h:panelGrid>
+</body>
+</html>

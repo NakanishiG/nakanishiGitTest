@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="ktvs-eiho-spot">
+		<jta-data-source>java:jboss/datasources/ktvseiho</jta-data-source>
+		<class>model.Contract</class>
+		<class>model.Frame</class>
+		<class>model.FrameHold</class>
+		<class>model.Onair</class>
+		<class>model.Program</class>
+		<class>model.ProgramClass</class>
+		<class>model.ValuationGrp</class>
+		<class>model.ValuationPeriod</class>
+		<class>model.ValuationPeriodPK</class>
+		<class>model.ViewBack</class>
+		<class>model.ViewTarget</class>
+		<properties>
+			<property name="hibernate.show_sql" value="true"/>
+		</properties>
+	</persistence-unit>
+</persistence>
