@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<title>Index Page</title>
+</h:head>
+ 
+<body>
+	<h:form>
+		<h:dataTable value="#{index.contractList}" var="c" rowClasses="odd, even" styleClass="list-tbl">
+			<h:column>
+				<f:facet name="header">contractNo</f:facet>
+				<h:outputText value="#{c.contractNo}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">sponsorName</f:facet>
+				<h:outputText value="#{c.sponsorName}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">agencyName</f:facet>
+				<h:outputText value="#{c.agencyName}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">itemName</f:facet>
+				<h:outputText value="#{c.itemName}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header"></f:facet>
+				<h:commandButton value="詳細" action="#{main.toMain(c)}" />
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</body>
+</html>
