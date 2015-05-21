@@ -2,7 +2,9 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.math.BigDecimal;
+import java.util.List;
 
 
 /**
@@ -10,6 +12,7 @@ import java.math.BigDecimal;
  * 
  */
 @Entity
+@XmlRootElement
 @Table(name="valuation_grp")
 @NamedQuery(name="ValuationGrp.findAll", query="SELECT v FROM ValuationGrp v")
 public class ValuationGrp implements Serializable {

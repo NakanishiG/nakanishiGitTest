@@ -2,6 +2,8 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.util.List;
 
 
 /**
@@ -9,7 +11,8 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@NamedQuery(name="Program.findAll", query="SELECT p FROM Program p")
+@XmlRootElement
+@NamedQuery(name="Program.findAll", query="SELECT p FROM Program p ORDER BY p.onairTimeStart ASC")
 public class Program implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -17,6 +20,15 @@ public class Program implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="program_id")
 	private Integer programId;
+
+	@Column(name="program_name")
+	private String programName;
+
+	@Column(name="onair_time_start")
+	private String onairTimeStart;
+
+	@Column(name="onair_time_end")
+	private String onairTimeEnd;
 
 	@Column(name="class_id")
 	private Integer classId;
@@ -27,15 +39,6 @@ public class Program implements Serializable {
 	@Column(name="is_sb_frame")
 	private Boolean isSbFrame;
 
-	@Column(name="onair_time_end")
-	private String onairTimeEnd;
-
-	@Column(name="onair_time_start")
-	private String onairTimeStart;
-
-	@Column(name="program_name")
-	private String programName;
-
 	public Program() {
 	}
 
@@ -45,6 +48,30 @@ public class Program implements Serializable {
 
 	public void setProgramId(Integer programId) {
 		this.programId = programId;
+	}
+
+	public String getProgramName() {
+		return this.programName;
+	}
+
+	public void setProgramName(String programName) {
+		this.programName = programName;
+	}
+
+	public String getOnairTimeStart() {
+		return this.onairTimeStart;
+	}
+
+	public void setOnairTimeStart(String onairTimeStart) {
+		this.onairTimeStart = onairTimeStart;
+	}
+
+	public String getOnairTimeEnd() {
+		return this.onairTimeEnd;
+	}
+
+	public void setOnairTimeEnd(String onairTimeEnd) {
+		this.onairTimeEnd = onairTimeEnd;
 	}
 
 	public Integer getClassId() {
@@ -69,30 +96,6 @@ public class Program implements Serializable {
 
 	public void setIsSbFrame(Boolean isSbFrame) {
 		this.isSbFrame = isSbFrame;
-	}
-
-	public String getOnairTimeEnd() {
-		return this.onairTimeEnd;
-	}
-
-	public void setOnairTimeEnd(String onairTimeEnd) {
-		this.onairTimeEnd = onairTimeEnd;
-	}
-
-	public String getOnairTimeStart() {
-		return this.onairTimeStart;
-	}
-
-	public void setOnairTimeStart(String onairTimeStart) {
-		this.onairTimeStart = onairTimeStart;
-	}
-
-	public String getProgramName() {
-		return this.programName;
-	}
-
-	public void setProgramName(String programName) {
-		this.programName = programName;
 	}
 
 }

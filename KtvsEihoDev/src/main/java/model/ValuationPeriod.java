@@ -2,8 +2,10 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -11,6 +13,7 @@ import java.util.Date;
  * 
  */
 @Entity
+@XmlRootElement
 @Table(name="valuation_period")
 @NamedQuery(name="ValuationPeriod.findAll", query="SELECT v FROM ValuationPeriod v")
 public class ValuationPeriod implements Serializable {

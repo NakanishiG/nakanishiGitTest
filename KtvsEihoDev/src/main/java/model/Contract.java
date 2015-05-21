@@ -2,7 +2,9 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -10,6 +12,7 @@ import java.util.Date;
  * 
  */
 @Entity
+@XmlRootElement
 @NamedQuery(name="Contract.findAll", query="SELECT c FROM Contract c")
 public class Contract implements Serializable {
 	private static final long serialVersionUID = 1L;

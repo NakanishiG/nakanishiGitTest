@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.math.BigDecimal;
 
 
@@ -10,8 +11,9 @@ import java.math.BigDecimal;
  * 
  */
 @Entity
+@XmlRootElement
 @Table(name="view_target")
-@NamedQuery(name="ViewTarget.findAll", query="SELECT v FROM ViewTarget v")
+@NamedQuery(name="ViewTarget.findAll", query="SELECT v FROM ViewTarget v ORDER BY v.viewTargetId ASC")
 public class ViewTarget implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -20,11 +22,11 @@ public class ViewTarget implements Serializable {
 	@Column(name="view_target_id")
 	private Integer viewTargetId;
 
-	@Column(name="view_rate")
-	private BigDecimal viewRate;
-
 	@Column(name="view_target_name")
 	private String viewTargetName;
+
+	@Column(name="view_rate")
+	private BigDecimal viewRate;
 
 	public ViewTarget() {
 	}
@@ -37,20 +39,20 @@ public class ViewTarget implements Serializable {
 		this.viewTargetId = viewTargetId;
 	}
 
-	public BigDecimal getViewRate() {
-		return this.viewRate;
-	}
-
-	public void setViewRate(BigDecimal viewRate) {
-		this.viewRate = viewRate;
-	}
-
 	public String getViewTargetName() {
 		return this.viewTargetName;
 	}
 
 	public void setViewTargetName(String viewTargetName) {
 		this.viewTargetName = viewTargetName;
+	}
+
+	public BigDecimal getViewRate() {
+		return this.viewRate;
+	}
+
+	public void setViewRate(BigDecimal viewRate) {
+		this.viewRate = viewRate;
 	}
 
 }

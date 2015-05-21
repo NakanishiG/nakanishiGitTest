@@ -2,7 +2,9 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.math.BigDecimal;
+import java.util.List;
 
 
 /**
@@ -10,6 +12,7 @@ import java.math.BigDecimal;
  * 
  */
 @Entity
+@XmlRootElement
 @NamedQuery(name="Onair.findAll", query="SELECT o FROM Onair o")
 public class Onair implements Serializable {
 	private static final long serialVersionUID = 1L;

@@ -2,6 +2,8 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.util.List;
 
 
 /**
@@ -9,6 +11,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
+@XmlRootElement
 @Table(name="program_class")
 @NamedQuery(name="ProgramClass.findAll", query="SELECT p FROM ProgramClass p")
 public class ProgramClass implements Serializable {

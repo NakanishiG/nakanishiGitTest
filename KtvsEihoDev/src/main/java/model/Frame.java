@@ -2,6 +2,8 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.util.List;
 
 
 /**
@@ -9,6 +11,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
+@XmlRootElement
 @NamedQuery(name="Frame.findAll", query="SELECT f FROM Frame f")
 public class Frame implements Serializable {
 	private static final long serialVersionUID = 1L;
