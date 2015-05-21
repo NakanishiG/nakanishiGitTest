@@ -61,7 +61,6 @@ public class Main implements Serializable {
 
 	public Main() {
 		// TODO Auto-generated constructor stub
-		//add comentkkkkkkkk
 	}
 	
 	public String toMain(Contract c){

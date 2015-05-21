@@ -1,0 +1,18 @@
+.list-tbl tr.odd{
+	background-color: #FCFFFE;
+}
+.list-tbl tr.even{
+	background-color: #ECF3FE;
+}
+.list-tbl tr.even{
+	background-color: #FFEBDA !important;
+}
+
+/*ƒƒCƒ“‰æ–Ê*/
+.hyoukaran{
+	width: 300px;
+	float: right;
+}
+.half-pnl{
+	width: 50%;
+}

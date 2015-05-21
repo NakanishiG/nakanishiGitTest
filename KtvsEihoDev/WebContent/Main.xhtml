@@ -8,6 +8,7 @@
 
 <h:head>
 	<title>Main Page</title>
+	<h:outputStylesheet library="css" name="style.css" />
 </h:head>
 
 <body>
@@ -88,15 +89,33 @@
 		</rich:toolbarGroup>
 	</rich:toolbar>
 
-	<h:panelGrid columns="2">
-		<h:outputText value="contractNo" />
-		<h:inputText value="#{main.contract.contractNo}" />
-		<h:outputText value="sponsorName" />
-		<h:inputText value="#{main.contract.sponsorName}" />
-		<h:outputText value="agencyName" />
-		<h:inputText value="#{main.contract.agencyName}" />
-		<h:outputText value="itemName" />
-		<h:inputText value="#{main.contract.itemName}" />
-	</h:panelGrid>
+	<div class="hyoukaran">
+		<rich:panel header="契約番号">
+			<h:outputText value="#{main.contract.contractNo}" />
+		</rich:panel>
+		<rich:panel header="スポンサー">
+			<h:outputText value="#{main.contract.sponsorName}" />
+		</rich:panel>
+		<rich:panel header="代理店">
+			<h:outputText value="#{main.contract.agencyName}" />
+		</rich:panel>
+		<rich:panel header="商品名">
+			<h:outputText value="#{main.contract.itemName}" />
+		</rich:panel>
+		<rich:panel header="契約期間">
+			<h:outputText value="#{main.contract.itemName}" />
+		</rich:panel>
+		<rich:panel header="契約サービス">
+			<h:outputText value="SV1,SV2,ﾜﾝｾｸﾞ" />
+		</rich:panel>
+		<h:panelGrid columnClasses="panel" border="0" columns="2" cellspacing="0" width="100%">
+			<rich:panel header="契約レベル" styleClass="half-pnl">
+				<h:outputText value="内定" />
+			</rich:panel>
+			<rich:panel header="串刺し区分" styleClass="half-pnl">
+				<h:outputText value="基本串刺し" />
+			</rich:panel>
+		</h:panelGrid>
+	</div>
 </body>
 </html>
