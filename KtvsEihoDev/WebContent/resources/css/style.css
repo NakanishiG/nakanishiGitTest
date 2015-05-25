@@ -8,11 +8,71 @@
 	background-color: #FFEBDA !important;
 }
 
-/*メイン画面*/
+.text-center{
+	text-align: center !important;
+}
+.text-right{
+	text-align: right !important;
+}
+.pnl-text-center .rf-p-b{
+	text-align: center;
+}
+.pnl-text-right .rf-p-b{
+	text-align: right;
+}
+
+/*番組クラスごとの背景色*/
+.program-a{
+	background-color: #ffb9bb;
+}
+.program-s{
+	background-color: #ffffb3;
+}
+.program-b{
+	background-color: #c1ffc1;
+}
+.program-c{
+	background-color: #97cbff;
+}
+
+/*メイン画面 評価欄*/
 .hyoukaran{
-	width: 300px;
+	width: 200px;
 	float: right;
 }
-.half-pnl{
+.hyouka-pnl{
+	margin-top: -1px;
+	padding: 0px !important;
+}
+.hyouka-pnl .rf-p-hdr{
+	border-top: 0px !important;
+	border-left: 0px !important;
+	border-right: 0px !important;
+}
+.hyouka-pnl .rf-p-b{
+	padding: 5px;
+}
+.half-pnl td{
 	width: 50%;
+}
+.half-pnl-gold td:FIRST-CHILD{
+	width: 61.8%;
+}
+.half-pnl-gold td:last-child{
+	width: 38.2%;
+}
+.quart-pnl td{
+	width: 25%;
+}
+.quart-pnl .rf-p-b{
+	padding: 0px;
+}
+.quart-inner{
+	padding: 2px;
+	border-bottom: 1px solid #BED6F8;
+}
+.quart-inner:last-child{
+	border-bottom: 0px;
+}
+.horizon-pnl .hyouka-pnl div{
 }

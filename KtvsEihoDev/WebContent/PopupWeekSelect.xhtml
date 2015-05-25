@@ -1,0 +1,19 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:h="http://java.sun.com/jsf/html">
+
+<rich:popupPanel id="weekSelect" modal="true" resizeable="false" onmaskclick="#{rich:component('weekSelect')}.hide()">
+	<f:facet name="header">
+		<h:outputText value="高度な空枠表" />
+	</f:facet>
+	<f:facet name="controls">
+		<h:outputLink value="#" onclick="#{rich:component('weekSelect')}.hide(); return false;">
+			<h:outputText value="×" />
+		</h:outputLink>
+	</f:facet>
+	<p>You can also check and trigger events if the use clicks outside of the panel.</p>
+</rich:popupPanel>
+</ui:composition>

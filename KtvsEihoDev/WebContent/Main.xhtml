@@ -75,8 +75,13 @@
 		<rich:toolbarGroup>
 			<h:outputText value="空（月～金）" />
 			<h:outputText value="空（土・日）" />
-			<h:outputText value="空（月～日）" />
-			<h:outputText value="空（高度）" />
+			<h:commandButton value="空（月～日）" >
+				<rich:componentControl target="free" operation="show" />
+			</h:commandButton>
+			<h:commandButton value="空（高度）" >
+				<rich:componentControl target="weekSelect" operation="show" />
+			</h:commandButton>
+			<ui:include src="PopupWeekSelect.xhtml" />
 			<h:outputText value="空（月）" />
 		</rich:toolbarGroup>
 		<rich:toolbarGroup>
@@ -90,30 +95,175 @@
 	</rich:toolbar>
 
 	<div class="hyoukaran">
-		<rich:panel header="契約番号">
-			<h:outputText value="#{main.contract.contractNo}" />
-		</rich:panel>
-		<rich:panel header="スポンサー">
+		<h:panelGrid columns="2" cellspacing="0" cellpadding="0" width="100%" styleClass="half-pnl-gold">
+			<rich:panel header="契約番号" styleClass="hyouka-pnl pnl-text-center">
+				<h:outputText value="#{main.contract.contractNo}" />
+			</rich:panel>
+			<rich:panel header="本支社" styleClass="hyouka-pnl pnl-text-center">
+				<h:outputText value="大阪" />
+			</rich:panel>
+		</h:panelGrid>
+		<rich:panel header="スポンサー" styleClass="hyouka-pnl">
 			<h:outputText value="#{main.contract.sponsorName}" />
 		</rich:panel>
-		<rich:panel header="代理店">
+		<rich:panel header="代理店" styleClass="hyouka-pnl">
 			<h:outputText value="#{main.contract.agencyName}" />
 		</rich:panel>
-		<rich:panel header="商品名">
+		<rich:panel header="商品名" styleClass="hyouka-pnl">
 			<h:outputText value="#{main.contract.itemName}" />
 		</rich:panel>
-		<rich:panel header="契約期間">
-			<h:outputText value="#{main.contract.itemName}" />
+		<rich:panel header="契約期間" styleClass="hyouka-pnl">
+			<h:outputText value="#{main.contract.contractDateStart}" >
+				<f:convertDateTime pattern="yy/MM/dd"/>
+			</h:outputText>
+			<h:outputText value=" - " />
+			<h:outputText value="#{main.contract.contractDateEnd}" >
+				<f:convertDateTime pattern="yy/MM/dd"/>
+			</h:outputText>
 		</rich:panel>
-		<rich:panel header="契約サービス">
+		<rich:panel header="契約サービス" styleClass="hyouka-pnl">
 			<h:outputText value="SV1,SV2,ﾜﾝｾｸﾞ" />
 		</rich:panel>
-		<h:panelGrid columnClasses="panel" border="0" columns="2" cellspacing="0" width="100%">
-			<rich:panel header="契約レベル" styleClass="half-pnl">
-				<h:outputText value="内定" />
+		<h:panelGrid columns="2" cellspacing="0" cellpadding="0" width="100%" styleClass="half-pnl">
+			<rich:panel header="契約レベル" styleClass="hyouka-pnl pnl-text-center">
+				<h:outputText value="&nbsp;" />
 			</rich:panel>
-			<rich:panel header="串刺し区分" styleClass="half-pnl">
+			<rich:panel header="串刺し区分" styleClass="hyouka-pnl pnl-text-center">
 				<h:outputText value="基本串刺し" />
+			</rich:panel>
+		</h:panelGrid>
+		<h:panelGrid columns="2" cellspacing="0" cellpadding="0" width="100%" styleClass="half-pnl">
+			<rich:panel header="ターゲット" styleClass="hyouka-pnl pnl-text-center">
+				<h:outputText value="&nbsp;" />
+			</rich:panel>
+			<rich:panel header="パターン" styleClass="hyouka-pnl pnl-text-center">
+				<h:outputText value="逆Ｌ" />
+			</rich:panel>
+		</h:panelGrid>
+		
+		<h:panelGrid columns="4" cellspacing="0" cellpadding="0" width="100%" styleClass="quart-pnl">
+			<rich:panel header="本数" styleClass="hyouka-pnl pnl-text-center">
+				<div class="quart-inner program-a">Ａ</div>
+				<div class="quart-inner program-s">特Ｂ</div>
+				<div class="quart-inner program-b">Ｂ</div>
+				<div class="quart-inner program-c">Ｃ</div>
+				<div class="quart-inner">合計</div>
+			</rich:panel>
+			<rich:panel header="15秒" styleClass="hyouka-pnl pnl-text-right">
+				<div class="quart-inner">1</div>
+				<div class="quart-inner">2</div>
+				<div class="quart-inner">3</div>
+				<div class="quart-inner">4</div>
+				<div class="quart-inner">5</div>
+			</rich:panel>
+			<rich:panel header="30秒" styleClass="hyouka-pnl pnl-text-right">
+				<div class="quart-inner">1</div>
+				<div class="quart-inner">2</div>
+				<div class="quart-inner">3</div>
+				<div class="quart-inner">4</div>
+				<div class="quart-inner">5</div>
+			</rich:panel>
+			<rich:panel header="合計" styleClass="hyouka-pnl pnl-text-right">
+				<div class="quart-inner">1</div>
+				<div class="quart-inner">2</div>
+				<div class="quart-inner">3</div>
+				<div class="quart-inner">4</div>
+				<div class="quart-inner">5</div>
+			</rich:panel>
+		</h:panelGrid>
+		
+		<h:panelGrid columns="4" cellspacing="0" cellpadding="0" width="100%" styleClass="quart-pnl">
+			<rich:panel header="ＧＲＰ" styleClass="hyouka-pnl pnl-text-center">
+				<div class="quart-inner program-a">Ａ</div>
+				<div class="quart-inner program-s">特Ｂ</div>
+				<div class="quart-inner program-b">Ｂ</div>
+				<div class="quart-inner program-c">Ｃ</div>
+				<div class="quart-inner">合計</div>
+				<div class="quart-inner">目標</div>
+			</rich:panel>
+			<rich:panel header="15秒" styleClass="hyouka-pnl pnl-text-right">
+				<div class="quart-inner">1</div>
+				<div class="quart-inner">2</div>
+				<div class="quart-inner">3</div>
+				<div class="quart-inner">4</div>
+				<div class="quart-inner">5</div>
+				<div class="quart-inner">6</div>
+			</rich:panel>
+			<rich:panel header="30秒" styleClass="hyouka-pnl pnl-text-right">
+				<div class="quart-inner">1</div>
+				<div class="quart-inner">2</div>
+				<div class="quart-inner">3</div>
+				<div class="quart-inner">4</div>
+				<div class="quart-inner">5</div>
+				<div class="quart-inner text-center">過不足</div>
+			</rich:panel>
+			<rich:panel header="合計" styleClass="hyouka-pnl pnl-text-right">
+				<div class="quart-inner">1</div>
+				<div class="quart-inner">2</div>
+				<div class="quart-inner">3</div>
+				<div class="quart-inner">4</div>
+				<div class="quart-inner">5</div>
+				<div class="quart-inner">6</div>
+			</rich:panel>
+		</h:panelGrid>
+
+		<rich:panel header="通常契約　時間取り本数" styleClass="hyouka-pnl">
+			<h:outputText value="SV1：54　ﾜﾝｾｸﾞ：54" />
+		</rich:panel>
+		<rich:panel header="補サ契約　時間取り本数" styleClass="hyouka-pnl">
+			<h:outputText value="&nbsp;" />
+		</rich:panel>
+		<rich:panel header="ﾏﾙﾁ(通常・補ｻ)　時間取り本数" styleClass="hyouka-pnl">
+			<h:outputText value="&nbsp;" />
+		</rich:panel>
+		<h:panelGrid columns="4" cellspacing="0" cellpadding="0" width="100%" styleClass="half-pnl horizon-pnl">
+			<rich:panel header="号数" styleClass="hyouka-pnl pnl-text-center">
+				<h:outputText value="1510" />
+			</rich:panel>
+			<rich:panel header="前４週" styleClass="hyouka-pnl pnl-text-center">
+				<h:outputText value="流用" />
+			</rich:panel>
+		</h:panelGrid>
+		<h:panelGrid columns="2" cellspacing="0" cellpadding="0" width="100%" styleClass="half-pnl">
+			<rich:panel header="契約金額" styleClass="hyouka-pnl pnl-text-right">
+				<h:outputText value="#{main.contract.contractAmount}" >
+					<f:convertNumber type="currency"/>
+				</h:outputText>
+			</rich:panel>
+			<rich:panel header="Ａシェア" styleClass="hyouka-pnl pnl-text-right">
+				<h:outputText value="46.6" />
+			</rich:panel>
+		</h:panelGrid>
+		<h:panelGrid columns="2" cellspacing="0" cellpadding="0" width="100%" styleClass="half-pnl">
+			<rich:panel header="正価金額" styleClass="hyouka-pnl pnl-text-right">
+				<h:outputText value="21,060,000" />
+			</rich:panel>
+			<rich:panel header="掛率" styleClass="hyouka-pnl pnl-text-right">
+				<h:outputText value="33.2" />
+			</rich:panel>
+		</h:panelGrid>
+		<h:panelGrid columns="2" cellspacing="0" cellpadding="0" width="100%" styleClass="half-pnl">
+			<rich:panel header="実績金額" styleClass="hyouka-pnl pnl-text-right">
+				<h:outputText value="12,710,000" />
+			</rich:panel>
+			<rich:panel header="実勢率" styleClass="hyouka-pnl pnl-text-right">
+				<h:outputText value="55.1" />
+			</rich:panel>
+		</h:panelGrid>
+		<h:panelGrid columns="2" cellspacing="0" cellpadding="0" width="100%" styleClass="half-pnl">
+			<rich:panel header="パーコスト" styleClass="hyouka-pnl pnl-text-right">
+				<h:outputText value="atode jissou" />
+			</rich:panel>
+			<rich:panel header="一本単価" styleClass="hyouka-pnl pnl-text-right">
+				<h:outputText value="129,630" />
+			</rich:panel>
+		</h:panelGrid>
+		<h:panelGrid columns="2" cellspacing="0" cellpadding="0" width="100%" styleClass="half-pnl">
+			<rich:panel header="Ａ単価" styleClass="hyouka-pnl pnl-text-right">
+				<h:outputText value="466,667" />
+			</rich:panel>
+			<rich:panel header="ＣＰＭ" styleClass="hyouka-pnl pnl-text-right">
+				<h:outputText value="254" />
 			</rich:panel>
 		</h:panelGrid>
 	</div>
